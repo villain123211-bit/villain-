@@ -1,3 +1,6 @@
+Warning: truncated output (original token count: 62856)
+Total output lines: 2738
+
 <!doctype html>
 <html lang="zh-CN">
 <head>
@@ -540,7 +543,7 @@
     <div class="parent-card">
       <div class="pt">Parent · 主栏目</div>
       <div class="pn">新媒体运营</div>
-      <div class="pd">国内 / 国外 / AI · 联网后手动更新</div>
+      <div class="pd">国内 / 国外 / AI · 每日候选自动采集</div>
     </div>
 
     <button type="button" class="nav-item active" data-page="plan" style="margin-top:6px">
@@ -593,9 +596,9 @@
 
     <div class="bottom">
       <div class="usage">
-        <div class="row"><span>资料维护</span><b>手动</b></div>
+        <div class="row"><span>资料维护</span><b>每日采集</b></div>
         <div class="bar"><i></i></div>
-        <div class="hint">热点资料需核验后更新 · 已装为手机 App · 离线可用</div>
+        <div class="hint">候选每天自动采集 · 核验通过后入库 · 已装为手机 App · 离线可用</div>
       </div>
     </div>
   </aside>
@@ -946,8 +949,8 @@ let verifiedHotspotMeta = null;
 const defaultPlan = [
   { id: 'p1', name: '运动', tag: 'sport', done: false, hint: '建议 30 分钟以上' },
   { id: 'p2', name: '10:50 提醒睡觉', tag: 'sleep', done: false, hint: '每天 22:50 推送提醒' },
-  { id: 'p3', name: '查看国内已收录热点（抖音 / 小红书）', tag: 'auto', done: false, hint: '联网后手动更新数据' },
-  { id: 'p4', name: '查看国外已收录热点（TikTok / INS / X）', tag: 'auto', done: false, hint: '联网后手动更新数据' },
+  { id: 'p3', name: '查看国内已收录热点（抖音 / 小红书）', tag: 'auto', done: false, hint: '候选每日自动采集，核验后入库' },
+  { id: 'p4', name: '查看国外已收录热点（TikTok / INS / X）', tag: 'auto', done: false, hint: '候选每日自动采集，核验后入库' },
   { id: 'p5', name: '查看已收录 AI 前沿动态（含 GitHub）', tag: 'auto', done: false, hint: '核验 AI 新热点 + GitHub Trending' }
 ];
 let planList = loadLS('trae_plan_v2', null) || [...defaultPlan];
@@ -1408,78 +1411,7 @@ const HOT_KEYWORDS = [
   { kw:'周五下午弹性离岗', cat:'国内', date:'8/6', heat:'181万热度', url:'https://s.weibo.com/weibo?q=%E5%91%A8%E4%BA%94%E4%B8%8B%E5%8D%88%E5%BC%B9%E6%80%A7%E7%A6%BB%E5%B2%97' },
   { kw:'小米Q2营收1089亿', cat:'国内', date:'8/18', heat:'231万热度', url:'https://s.weibo.com/weibo?q=%E5%B0%8F%E7%B1%B3Q2%E8%90%A5%E6%94%B61089%E4%BA%BF%E5%85%83' },
   { kw:'朱雀三号', cat:'国内', date:'8/19', heat:'289万热度', url:'https://s.weibo.com/weibo?q=%E6%9C%B1%E9%9B%80%E4%B8%89%E5%8F%B7' },
-  { kw:'男频和女频的区别', cat:'国内', date:'8/27', heat:'84万热度', url:'https://s.weibo.com/weibo?q=%E7%94%B7%E9%A2%91%E5%92%8C%E5%A5%B3%E9%A2%91%E7%9A%84%E5%8C%BA%E5%88%AB' },
-  { kw:'梅西续约迈阿密', cat:'国外', date:'8/6', heat:'年薪8000万美元', url:'https://news.google.com/search?q=%E6%A2%85%E8%A5%BF%20%E8%BF%88%E9%98%BF%E5%AF%86%E5%9B%BD%E9%99%85%20%E7%BB%AD%E7%BA%A6' },
-  { kw:'C罗最后一年', cat:'国外', date:'8/17', heat:'41岁退役信号', url:'https://news.zhibo8.com/zuqiu/2026-08-17/6a82af708a5e3native.htm' },
-  { kw:'世界杯决赛争议', cat:'国外', date:'8/14', heat:'西班牙犯规判罚', url:'https://news.google.com/search?q=World%20Cup%202026%20final%20Spain%20foul' },
-  { kw:'Trucker POV', cat:'国外', date:'8月', heat:'3.36亿播放', url:'https://www.tiktok.com/search?q=trucker%20pov' },
-  { kw:'Petal 椅子编舞', cat:'国外', date:'8/7', heat:'Ariana新专', url:'https://www.tiktok.com/search?q=petal%20chair%20dance' },
-  { kw:'Paparazzi 丑到美', cat:'国外', date:'8/4', heat:'TikTok趋势', url:'https://www.tiktok.com/search?q=paparazzi%20dubstep' },
-  { kw:'Netflix纪录片式访谈', cat:'国外', date:'8/9', heat:'INS趋势', url:'https://www.instagram.com/explore/tags/netflixdocumentary/' },
-  { kw:'Bedazzle 万物镶钻', cat:'国外', date:'8/10', heat:'INS趋势', url:'https://www.instagram.com/explore/tags/bedazzled/' },
-  { kw:'老钱风', cat:'美学', date:'8月', heat:'静奢风持续高热', url:'https://s.weibo.com/weibo?q=%E8%80%81%E9%92%B1%E9%A3%8E' },
-  { kw:'多巴胺穿搭', cat:'美学', date:'8月', heat:'高饱和亮色回潮', url:'https://s.weibo.com/weibo?q=%E5%A4%9A%E5%B7%B4%E8%83%BA%E7%A9%BF%E6%90%AD' },
-  { kw:'新中式', cat:'美学', date:'8月', heat:'国风新表达', url:'https://s.weibo.com/weibo?q=%E6%96%B0%E4%B8%AD%E5%BC%8F' },
-  { kw:'美拉德穿搭', cat:'美学', date:'8月', heat:'秋冬焦糖色系', url:'https://s.weibo.com/weibo?q=%E7%BE%8E%E6%8B%89%E5%BE%B7%E7%A9%BF%E6%90%AD' },
-  { kw:'复古港风', cat:'美学', date:'8月', heat:'90年代氛围回潮', url:'https://s.weibo.com/weibo?q=%E5%A4%8D%E5%8F%A4%E6%B8%AF%E9%A3%8E' },
-  { kw:'发疯文学', cat:'梗', date:'8月', heat:'情绪文案热梗', url:'https://s.weibo.com/weibo?q=%E5%8F%91%E7%96%AF%E6%96%87%E5%AD%A6' },
-  { kw:'显眼包', cat:'梗', date:'8月', heat:'自带笑点出圈', url:'https://s.weibo.com/weibo?q=%E6%98%BE%E7%9C%BC%E5%8C%85' },
-  { kw:'内耗', cat:'情绪', date:'8月', heat:'精神内耗热议', url:'https://s.weibo.com/weibo?q=%E5%86%85%E8%80%97' },
-  { kw:'松弛感', cat:'情绪', date:'8月', heat:'反焦虑生活态度', url:'https://s.weibo.com/weibo?q=%E6%9D%BE%E5%BC%9B%E6%84%9F' },
-  { kw:'班味', cat:'情绪', date:'8月', heat:'打工人共鸣', url:'https://s.weibo.com/weibo?q=%E7%8F%AD%E5%91%B3' },
-  { kw:'情绪价值', cat:'情绪', date:'8月', heat:'内容创作核心词', url:'https://s.weibo.com/weibo?q=%E6%83%85%E7%BB%AA%E4%BB%B7%E5%80%BC' },
-  { kw:'citywalk', cat:'生活', date:'8月', heat:'城市漫步生活方式', url:'https://s.weibo.com/weibo?q=citywalk' },
-  { kw:'特种兵旅游', cat:'生活', date:'8月', heat:'极限打卡式出游', url:'https://s.weibo.com/weibo?q=%E7%89%B9%E7%A7%8D%E5%85%B5%E6%97%85%E6%B8%B8' },
-  { kw:'夜市摆摊', cat:'生活', date:'8月', heat:'年轻人副业新选择', url:'https://s.weibo.com/weibo?q=%E5%A4%9C%E5%B8%82%E6%91%86%E6%91%8A' },
-  { kw:'吸猫', cat:'宠物', date:'8月', heat:'宠物经济情绪消费', url:'https://s.weibo.com/weibo?q=%E5%90%B8%E7%8C%AB' },
-  { kw:'大女主', cat:'女性', date:'8月', heat:'独立女性叙事', url:'https://s.weibo.com/weibo?q=%E5%A4%A7%E5%A5%B3%E4%B8%BB' },
-  { kw:'女性主义', cat:'女性', date:'8月', heat:'性别平等讨论', url:'https://s.weibo.com/weibo?q=%E5%A5%B3%E6%80%A7%E4%B8%BB%E4%B9%89' },
-  { kw:'MoneyPrinterTurbo', cat:'GitHub', date:'8/22', heat:'周增10.5k', url:'https://github.com/harry0703/MoneyPrinterTurbo' },
-  { kw:'deepseek-harness', cat:'GitHub', date:'8/13', heat:'月增+140.9k', url:'https://github.com/deepseek-ai/deepseek-harness' },
-  { kw:'diagram-design', cat:'GitHub', date:'8/16', heat:'周增+11.7k', url:'https://github.com/cathrynlavery/diagram-design' },
-  { kw:'human-writing', cat:'GitHub', date:'8/10', heat:'33周榜第一', url:'https://github.com/KKKKhazix/human-writing' },
-];
-const hotWords = HOT_KEYWORDS.map(k => k.kw);
-const r = (a, b) => a + Math.floor(Math.random() * (b - a + 1));
-const pick = arr => arr[Math.floor(Math.random() * arr.length)];
-
-/* =====================================================================
- * 语义理解引擎：TOPIC_KB（话题知识库）+ 分类型标题模板 + 关联热点检索
- * 让标题生成真正「读懂」用户输入的词，而不是机械套模板。
- * ===================================================================== */
-const timelineData = {
-  '2026-08': {
-    label: '2026年8月',
-    note: '仅收录可应用于市场/广告/新媒体/内容运营的真实热点（已剔除纯八卦）。每条均带真实出处可查证 + 玩法应用角度。',
-    days: {
-      '8-1': [
-        { cat:"国内", title:"台风\"白海豚\"达17级：极端天气成全网共同话题", src:"微博热搜·8/1", url:"https://s.weibo.com/weibo?q=%E5%8F%B0%E9%A3%8E%E7%99%BD%E6%B5%B7%E8%B1%9A%E5%B7%B2%E8%BE%BE17%E7%BA%A7", heat:"114.4万", use:"可做\"台风生存指南/城市安全出行\"类合集内容，蹭天气热点带地域流量；平台天气类内容完播率天然高。", tag:['天气', '生活方式'] },
-        { cat:"国外", title:"TikTok《Responding to Bullies》：让家人回怼\"霸凌者\"拍真实反应", src:"TikTok 8月趋势周报", url:"https://www.tiktok.com/search?q=responding%20to%20bullies", heat:"8月TOP趋势", use:"低成本高回报玩法：给家人/同事/老板设\"回怼杠精\"情境拍真实反应，反差即笑点，可迁移到品牌号\"替用户怼黑评\"。", tag:['整活', 'TikTok'] },
-        { cat:"AI", title:"中国开源AI震动硅谷：以 Kimi K3 为代表的开源模型引发美科技巨头分裂", src:"AgentUpdate·8/1", url:"https://agentupdate.ai/zh/news", heat:"行业大讨论", use:"AI科普/行业号素材：做\"国产开源为何让硅谷分裂\"深度解读，讲清开源vs闭源之争，自带科技议题流量。", tag:['AI', '开源'] },
-      ],
-      '8-2': [
-        { cat:"国内", title:"瑞幸员工对嘴喷奶油：连锁品牌食品安全再上风口", src:"微博热搜·8/2", url:"https://s.weibo.com/weibo?q=%E7%91%9E%E5%B9%B8%E5%91%98%E5%B7%A5%E5%AF%B9%E5%98%B4%E5%96%B7%E5%A5%B6%E6%B2%B9", heat:"267.4万", use:"品牌公关/食安内容切入点：盘点\"连锁品牌卫生翻车史\"+门店操作透明化趋势，做消费者视角的避雷清单。", tag:['消费', '品牌'] },
-        { cat:"国外", title:"X 爆款模式：争议性日常故事（星巴克员工带过期蛋糕回家被解雇等）引爆\"评论区分裂\"", src:"X 热门讨论·8月", url:"https://x.com/search?q=starbucks%20employee%20fired%20cake%20pops&f=top", heat:"全网站队", use:"可复制的X式内容格式：抛一个\"谁对谁错\"的真实职场/生活争议，评论区自动站队=天然互动率；本土化做\"你遇到过最分裂的职场瞬间\"。", tag:['情感', 'X'] },
-        { cat:"AI", title:"MiniMax H3 全模态开源权重上线 Hugging Face：首个\"文+图+视频+音频\"全开源模型", src:"Local AI Zone·8月", url:"https://huggingface.co/MiniMaxAI/H3", heat:"开源热点", use:"AI创作者实测选题：用H3生成\"带原生音效的2K视频片段\"做效果测评，验证\"开源多模态能不能商用\"，比纯文字讲解更抓流量。", tag:['AI', '开源'] },
-      ],
-      '8-3': [
-        { cat:"国内", title:"AI短剧女主60秒广告报价25万8：AI内容商业化天花板被刷新", src:"微博热搜·8/3", url:"https://s.weibo.com/weibo?q=AI%E7%9F%AD%E5%89%A7%E5%A5%B3%E4%B8%BB60%E7%A7%92%E5%B9%BF%E5%91%8A%E6%8A%A5%E4%BB%B725%E4%B8%878", heat:"176.5万", use:"新媒体人必蹭：拆解\"AI短剧+广告主\"商业链路，做\"普通人怎么入局AI短剧分一杯羹\"的变现教程类内容。", tag:['AI', '职场'] },
-        { cat:"AI", title:"阿里发布 Qwen3.8-Max：2.4万亿参数，史上最大开源权重模型", src:"Local AI Zone·8/3", url:"https://huggingface.co/Qwen/Qwen3.8-Max", heat:"史上最大开源", use:"AI测评向选题：实测Qwen3.8-Max做\"长任务Agent编码/多模态理解\"，对比GPT-5.6给\"普通人该用哪个\"结论，科技+泛流量双吃。", tag:['AI', '开源'] },
-        { cat:"GitHub", title:"GitHub 一周 Star 增长榜 Top10：AI Agent 项目领跑", src:"CSDN DevPress·8/3", url:"https://devpress.csdn.net/v1/article/detail/163432473", heat:"周榜", use:"开发者/科技号选题：把当周GitHub高增长项目做成一图流盘点，逐个30秒讲\"能拿来做什么\"，技术+泛科技受众通吃。", tag:['开源', 'AI'] },
-
-
-        { cat:"女性话题", sub:"国内", title:"北京一公司要求11名女员工入职提供孕检证明：人社部门认定就业性别歧视，罚款2.2万并责令改正", src:"第1财经·8/3", url:"https://www.iesdouyin.com/share/video/7669735171201567461", heat:"女性就业", use:"职场/女性号选题：从法律讲清「入职体检不能查怀孕」，做女性求职避坑清单+《妇女权益保障法》科普，教育+职场双流量。", tag:['女性', '职场', '权益'] },
-      ],
-      '8-4': [
-        { cat:"国内", title:"\"竹知了\"刷屏：全网都在找\"竹知了\"是什么", src:"微博热搜·8/4", url:"https://s.weibo.com/weibo?q=%E7%AB%B9%E7%9F%A5%E4%BA%86", heat:"298.7万", use:"谜题式爆款玩法：抓住\"全网都在找XX是什么\"的悬念缺口做科普/玩梗内容，前3秒抛出问题，评论区互动率极高。", tag:['整活', '生活方式'] },
-        { cat:"国内", title:"上海雪花膏破产：老国货品牌命运引集体回忆杀", src:"微博热搜·8/4", url:"https://s.weibo.com/weibo?q=%E4%B8%8A%E6%B5%B7%E9%9B%AA%E8%8A%B1%E8%86%8F%E7%A0%B4%E4%BA%A7", heat:"230.4万", use:"国货情怀营销选题：盘点\"消失的老国货\"，做\"国货品牌如何翻红/为什么会死\"的消费观察，天然高转发+评论区回忆杀。", tag:['消费', '品牌'] },
-        { cat:"国外", title:"TikTok《Paparazzi Dubstep》：丑到美硬切转型（Lady Gaga 混音）", src:"TikTok 8月趋势周报", url:"https://www.tiktok.com/search?q=paparazzi%20dubstep", heat:"8月TOP趋势", use:"转场玩法：素颜vs妆后/工装vs下班穿搭，卡beat drop硬切，反差越大越爆；品牌号可做\"产品改造前后\"变身对比。", tag:['整活', 'TikTok'] },
-
-
-        { cat:"女性话题", sub:"国内", title:"卫生巾「虫卵」事件冲上热搜：卫生巾行业再陷信任风暴", src:"南方+/微博热搜·8/4", url:"https://www.nfnews.com/content/O3GA4r1Bo0.html", heat:"180.2万", use:"女性健康选题：做「卫生巾怎么选才安全」科普（看卫生标准/致敏性/材质四道防线），女性刚需+焦虑情绪，评论区讨论度极高。", tag:['女性', '健康', '消费'] },
-      ],
-      '8-5': [
-        { cat:"国内", title:"中传取消艺考：艺考改革冲击教育赛道", src:"微博热搜·8/5", url:"https://s.weibo.com/weibo?q=%E4%B8%AD%E4%BC%A0%E5%8F%96%E6%B6%88%E8%89%BA%E8%80%83", heat:"347.0万", use:"教育/职场号选题：拆解\"取消艺考意味着什么\"，做\"艺考之外的艺考生出路\"规划类干货，教育赛道高价值长尾内容。", tag:['教育', '职场'] },
+  { kw:'男频和女频的区别', cat:'国内', date:'8/27', heat:'84万热度', url:'https://s.w…2856 tokens truncated…消艺考意味着什么\"，做\"艺考之外的艺考生出路\"规划类干货，教育赛道高价值长尾内容。", tag:['教育', '职场'] },
         { cat:"国外", title:"TikTok《We Had ChatGPT Make Us a Script》：让AI写剧本、朋友面瘫演", src:"TikTok 8月趋势周报", url:"https://www.tiktok.com/search?q=chatgpt%20script", heat:"8月TOP趋势", use:"AI整活玩法：让AI写\"宿舍修罗场/办公室甄嬛传\"剧本找朋友面瘫演绎，开头字幕\"我们让AI写了剧本\"，零成本高传播。", tag:['AI', '整活'] },
         { cat:"AI", title:"Mistral 开源 Shieldstral 内容审核模型：3B 参数多模态 SOTA", src:"AITOP100·8/5", url:"https://www.aitop100.cn/ai-daily-2026-08-05", heat:"开源SOTA", use:"AI安全科普向：讲\"为什么AI内容需要审核模型\"+\"平台如何用AI筛AI\"，帮助内容创作者理解平台规则，行业视角内容。", tag:['AI', '开源'] },
 
@@ -2735,3 +2667,4 @@ document.addEventListener('click', function (ev) {
 </script>
 </body>
 </html>
+

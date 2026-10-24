@@ -1,0 +1,72 @@
+{
+  "schemaVersion": 1,
+  "reviewedAt": "2026-10-24T12:30:00+08:00",
+  "items": [
+    {
+      "zone": "cn",
+      "plat": "douyin",
+      "plats": ["douyin", "weibo"],
+      "date": "2026-10-23",
+      "title": "抖音通报“AI 小海”虚假人设卖惨带货处置结果",
+      "url": "https://finance.eastmoney.com/a/202610233906657466.html",
+      "src": "东方财富转载澎湃新闻（含抖音黑板报公告要点）",
+      "kw": "AI 小海 虚假人设 卖惨带货",
+      "track": "AI 内容合规",
+      "why": "抖音公告将“AI 仿冒人物虚假营销”列为整治对象，并披露“小海”AI 数字人卖惨带货案例已被处置。这是内容团队需要关注的合规规则变化，不是热度排名。",
+      "idea": "做“AI 内容上线前自检”图文或口播：是否虚构身份、是否暗示真实经历、是否清楚标注 AI 合成、商品信息能否核验。不要复述或模仿卖惨脚本。",
+      "tags": ["抖音", "AI内容", "内容合规"],
+      "heatNum": 0,
+      "fitScore": 92
+    },
+    {
+      "zone": "cn",
+      "plat": "xhs",
+      "plats": ["xhs"],
+      "date": "2026-10-20",
+      "title": "小红书“大城小聚”活动落地北京首钢园",
+      "url": "https://finance.people.com.cn/n1/2026/1020/c1004-40818242.html",
+      "src": "人民网转载中国经济网",
+      "kw": "小红书 大城小聚 首钢园",
+      "track": "线下活动内容化",
+      "why": "报道确认小红书“大城小聚”活动于 10 月 24 日起在北京首钢园举办一周。它可作为“平台把线下场景变成可发布内容”的案例，不代表站内热榜排名。",
+      "idea": "若做同城或品牌活动，提前设计三类可投稿素材：到场前的任务卡、现场可复刻的拍摄点、离场后的清单模板；每一类都提供统一话题和可直接发布的文案骨架。",
+      "tags": ["小红书", "线下活动", "同城运营"],
+      "heatNum": 0,
+      "fitScore": 88
+    },
+    {
+      "zone": "cn",
+      "plat": "weibo",
+      "plats": ["weibo"],
+      "date": "2026-10-23",
+      "title": "微博完成 iPhone Duo 适配",
+      "url": "https://news.sina.com.cn/zx/2026-10-23/doc-iniweiyt5675007.shtml",
+      "src": "新浪新闻转载界面新闻",
+      "kw": "微博 iPhone Duo 适配",
+      "track": "内容体验",
+      "why": "报道显示微博 iOS 端 16.10.2 版本已适配 iPhone Duo。对运营者而言，重点是内容在新屏幕形态下的阅读、评论与转发路径，而不是把设备新闻当作热搜。",
+      "idea": "用一张长图和一条评论区较长的帖子做真机检查：首屏信息密度、图片裁切、评论层级、链接跳转。把发现的问题整理成“新设备适配清单”，避免只做空泛测评。",
+      "tags": ["微博", "产品适配", "内容体验"],
+      "heatNum": 0,
+      "fitScore": 72
+    },
+    {
+      "zone": "global",
+      "plat": "tiktok",
+      "plats": ["tiktok", "ins"],
+      "date": "2026-10-22",
+      "title": "社交平台强化用户对推荐内容的主动控制",
+      "url": "https://keyt.com/news/money-and-business/cnn-business-consumer/2026/10/22/taking-back-the-algorithm-social-media-platforms-are-restoring-users-control-of-their-feeds/",
+      "mirrorUrl": "https://s.weibo.com/weibo?q=TikTok%20%E6%8E%A8%E8%8D%90%E9%A1%B5%20%E7%94%A8%E6%88%B7%E6%8E%A7%E5%88%B6",
+      "src": "CNN Newsource（News Channel 3-12 刊载）",
+      "kw": "TikTok 推荐页 用户控制",
+      "track": "推荐机制",
+      "why": "报道提到 Instagram、TikTok、YouTube 等平台正在提供更多推荐内容的反馈与自定义入口。它说明用户会主动表达“想多看/少看什么”，并非某条内容的实时热度。",
+      "idea": "把账号选题拆成可被用户主动选择的系列，例如“新手版 / 进阶版 / 不想再看”；在结尾用明确选项收集反馈，再按反馈更新下周选题，而不是只依赖单条播放量。",
+      "tags": ["TikTok", "Instagram", "推荐机制"],
+      "heatNum": 0,
+      "fitScore": 80
+    }
+  ]
+}
+

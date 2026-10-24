@@ -1,0 +1,28 @@
+name: Build verified daily hotspots
+
+on:
+  schedule:
+    - cron: '10 1 * * *' # 09:10 Asia/Shanghai (UTC+8)
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Collect candidates and publish verified weekly data
+        run: node scripts/build-daily-hotspots.mjs
+      - name: Commit changed candidates or verified data
+        run: |
+          git config user.name "TRAEWork Hotspot Bot"
+          git config user.email "actions@github.com"
+          git add data/candidates.json data/hotspots.json work/traework/data/hotspots.json outputs/data/hotspots.json
+          git diff --cached --quiet || git commit -m "chore: refresh daily hotspot candidates"
+          git push
+

@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "verifiedAt": "2026-10-28T06:48:57.569Z",
+  "verifiedAt": "2026-10-29T06:58:35.597Z",
   "latestDate": "2026-10-23",
   "windowDays": 7,
   "collections": {
@@ -114,35 +114,7 @@
         ]
       }
     ],
-    "glTopics": [
-      {
-        "plat": "tiktok",
-        "plats": [
-          "tiktok",
-          "ins"
-        ],
-        "date": "2026-10-22",
-        "heatNum": 0,
-        "fitScore": 80,
-        "kw": "TikTok 推荐页 用户控制",
-        "track": "推荐机制",
-        "title": "社交平台强化用户对推荐内容的主动控制",
-        "url": "https://keyt.com/news/money-and-business/cnn-business-consumer/2026/10/22/taking-back-the-algorithm-social-media-platforms-are-restoring-users-control-of-their-feeds/",
-        "webUrl": "https://keyt.com/news/money-and-business/cnn-business-consumer/2026/10/22/taking-back-the-algorithm-social-media-platforms-are-restoring-users-control-of-their-feeds/",
-        "mirrorUrl": "https://s.weibo.com/weibo?q=TikTok%20%E6%8E%A8%E8%8D%90%E9%A1%B5%20%E7%94%A8%E6%88%B7%E6%8E%A7%E5%88%B6",
-        "src": "CNN Newsource（News Channel 3-12 刊载）",
-        "why": "报道提到 Instagram、TikTok、YouTube 等平台正在提供更多推荐内容的反馈与自定义入口。它说明用户会主动表达“想多看/少看什么”，并非某条内容的实时热度。",
-        "idea": "把账号选题拆成可被用户主动选择的系列，例如“新手版 / 进阶版 / 不想再看”；在结尾用明确选项收集反馈，再按反馈更新下周选题，而不是只依赖单条播放量。",
-        "plan": [
-          "把账号选题拆成可被用户主动选择的系列，例如“新手版 / 进阶版 / 不想再看”；在结尾用明确选项收集反馈，再按反馈更新下周选题，而不是只依赖单条播放量。"
-        ],
-        "tags": [
-          "TikTok",
-          "Instagram",
-          "推荐机制"
-        ]
-      }
-    ],
+    "glTopics": [],
     "aiCN": [],
     "aiGL": []
   }
